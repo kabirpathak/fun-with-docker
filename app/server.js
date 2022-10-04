@@ -26,7 +26,7 @@ let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
 let mongoUrlDocker = "mongodb://admin:password@mongodb";
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
-let databaseName = "user-account";
+let databaseName = "user-database";
 
 app.post('/update-profile', function (req, res) {
   let userObj = req.body;

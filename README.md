@@ -1,6 +1,6 @@
 Development lifecycle : 
 
-### Commit #1
+### Commit #1 (Using docker-network and images)
 
 - Pulled the following 2 images from dockerhub:
   - mongo 
@@ -35,10 +35,16 @@ Development lifecycle :
     ME_CONFIG_MONGODB_SERVER=container_name only works here because mongo and mongo-express are in the same docker-network.
     ```
 
-- Now mongo-express can be accessed from port 8081. Created database user-accounts
+- Now mongo-express can be accessed from port 8081. Created database user-database.
 
-- To check whether the connection between mongodb and mongo-express was correctly established, update the user from your browser, and then visit localhost:8081 -> db: user_account -> collection: users; You should be able to see 1 entry in the users collection.
+- To check whether the connection between mongodb and mongo-express was correctly established, update the user from your browser, and then visit localhost:8081 -> db: user-database -> collection: users; You should be able to see 1 entry in the users collection.
 
 <img src="https://user-images.githubusercontent.com/46262107/193707763-67df64c5-099b-44bd-92ad-ff73d1d9f1de.png" width="40%" />
 
 ---
+
+### Commit #2 (Using docker-compose)
+
+- Created a docker-compose file. No need to create a docker network, since docker-compose takes care of that.
+- Running docker-compose -f mongo.yaml down will delete all created containers and docker network.
+- Used healthcheck and depends_on to ensure that mongo-express starts only when mongodb is already up. Otherwise, mongo-express was trying to establish connection before mongodb was even up, and exiting.
