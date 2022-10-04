@@ -38,3 +38,7 @@ Development lifecycle :
 - Now mongo-express can be accessed from port 8081. Created database user-accounts
 
 - To check whether the connection between mongodb and mongo-express was correctly established, update the user from your browser, and then visit localhost:8081 -> db: user_account -> collection: users; You should be able to see 1 entry in the users collection.
+
+<img src="https://user-images.githubusercontent.com/46262107/193707763-67df64c5-099b-44bd-92ad-ff73d1d9f1de.png" width="40%" />
+
+---
