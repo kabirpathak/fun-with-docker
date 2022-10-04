@@ -20,10 +20,10 @@ app.get('/profile-picture', function (req, res) {
   res.end(img, 'binary');
 });
 
-// the following url will be used once we the app from docker-compose
+// the following url will be used once we the app from docker-compose, otherwise use mongoUrlLocal
 let mongoUrlDocker = "mongodb://admin:password@mongodb";
 
-let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
+// let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 let databaseName = "user-database";
@@ -31,7 +31,7 @@ let databaseName = "user-database";
 app.post('/update-profile', function (req, res) {
   let userObj = req.body;
 
-  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+  MongoClient.connect(mongoUrlDocker, mongoClientOptions, function (err, client) {
     if (err) throw err;
 
     let db = client.db(databaseName);
@@ -51,7 +51,7 @@ app.post('/update-profile', function (req, res) {
 
 app.get('/get-profile', function (req, res) {
   let response = {};
-  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+  MongoClient.connect(mongoUrlDocker, mongoClientOptions, function (err, client) {
     if (err) throw err;
 
     let db = client.db(databaseName);

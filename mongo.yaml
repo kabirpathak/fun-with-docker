@@ -20,4 +20,8 @@ services:
     depends_on:
       mongodb:
         condition: service_healthy
+  fun-with-docker:
+    image: [ENTER IMAGE ID HERE AFTER CREATING IMAGE LOCALLY]
+    ports:
+      - 3000:3000
     
