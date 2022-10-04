@@ -20,10 +20,10 @@ app.get('/profile-picture', function (req, res) {
   res.end(img, 'binary');
 });
 
-let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
-
-// used when starting application as docker container
+// the following url will be used once we the app from docker-compose
 let mongoUrlDocker = "mongodb://admin:password@mongodb";
+
+let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 let databaseName = "user-database";

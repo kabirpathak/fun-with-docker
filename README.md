@@ -48,3 +48,16 @@ Development lifecycle :
 - Created a docker-compose file. No need to create a docker network, since docker-compose takes care of that.
 - Running docker-compose -f mongo.yaml down will delete all created containers and docker network.
 - Used healthcheck and depends_on to ensure that mongo-express starts only when mongodb is already up. Otherwise, mongo-express was trying to establish connection before mongodb was even up, and exiting.
+
+---
+
+### Commit #3 (Dockerfile)
+
+- Created a Dockerfile for the application, using the following command : 
+  ```docker build -t <name>:<version> . ```
+  ```. here represents the location of the Dockerfile (loc of the directory)```
+
+- Will need to change the url for connecting to mongo-db once the application image is used instead of just running the app locally. 
+  ```mongodb://admin:password@localhost:27017 -> mongodb://admin:password@mongo```
+
+---
